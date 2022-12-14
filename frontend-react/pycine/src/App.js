@@ -12,8 +12,10 @@ class App extends Component {
     super(props);
 
     this.state = {
-      post: this.props.data,
-      comment: ''
+      value:"", 
+      artist_name: "", 
+      biography: "",
+      error: ""
     };
   }
 
@@ -33,34 +35,28 @@ class App extends Component {
       this.setState({value:name, artist_name: result.name, biography: result.biography})
 
     } catch (e) {
-      console.log(e)
+      this.setState({value:'', artist_name:'', biography:'', error:'Não foi possivel encontrar o artista'})
     }
   }  
   
   render() {
       return(
-        <div class="form-body">
-        <div class="row">
-            <div class="form-holder">
-                <div class="form-content">
-                    <div class="form-items">
+        <div className="form-body">
+        <div className="row">
+            <div className="form-holder">
+                <div className="form-content">
+                    <div className="form-items">
                         <h3>Busque a biografia do artista de sua escolha!</h3>
                         <p>Insira o nome do artista no campo abaixo.</p>
-                        <form class="requires-validation" novalidate>
-
-                            <div class="col-md-12">
-                               <input class="form-control" type="text" name="name" placeholder="Nome do artista" value={this.state.value} onChange={this.handleChange} required/>
-                            </div>
-                            <div class="form-button mt-3">
-                              <button onClick={() => this.getArtistId()}>
-                                 Buscar Artista
-                              </button>
-                            </div>
-                        </form>
-                      
-                        <div>{this.state.artist_name}</div>
-                        <div>{this.state.biography}</div>
-                        
+                          <div>
+                            <input type="text" id="name" placeholder="Nome do artista" value={this.state.value} onChange={this.handleChange} required/>
+                            <button className="btn-primary" onClick={() => this.getArtistId()}>
+                                Buscar Artista
+                            </button>
+                            {this.state.artist_name != ''?  <p className='form-content'>{this.state.artist_name}</p>: <p className='form-content'>{this.state.error}</p>}
+                            {this.state.biography != ''?  <p className='biography'>{this.state.biography}</p>: null}
+                          </div>                      
+                          
                     </div>
                 </div>
             </div>
