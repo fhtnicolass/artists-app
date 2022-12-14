@@ -34,14 +34,17 @@ class Artist(BaseModel):
 @app.get('/artista/{name}')
 def get_artist(name: str):
 
-    artista = RequestApi.get_artista_nome(name)
+    if(name != ''):
 
-    id = artista['id']
+        artista = RequestApi.get_artista_nome(name)
 
-    full_artist = RequestApi.get_artista(id)
+        id = artista['id']
 
-    return full_artist
+        full_artist = RequestApi.get_artista(id)
 
+        return full_artist
+
+    
 
 
 
