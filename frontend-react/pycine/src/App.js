@@ -3,8 +3,6 @@ import React, {Component} from 'react';
 import './App.css'
 
 var name = ''
-var id = ''
-var artist_name = ''
 
 class App extends Component {
   
@@ -15,7 +13,10 @@ class App extends Component {
       value:"", 
       artist_name: "", 
       biography: "",
-      error: ""
+      error: "",
+      popularity: "",
+      photo: "",
+
     };
   }
 
@@ -31,11 +32,14 @@ class App extends Component {
       let result = await fetch('http://localhost:8000/artista/' + name).then(function(response){
         return response.json()
       })
+
+      let image = await fetch('https://image.tmdb.org/t/p/w300' + result.profile_path)
       console.log(result)
-      this.setState({value:name, artist_name: result.name, biography: result.biography})
+      this.setState({value:name, artist_name: result.name, biography: result.biography, popularity: result.popularity, photo: image.url})
+      console.log(this.state.photo)
 
     } catch (e) {
-      this.setState({value:'', artist_name:'', biography:'', error:'Não foi possivel encontrar o artista'})
+      this.setState({value:'', artist_name:'', biography:'', photo:'',error:'Não foi possivel encontrar o artista'})
     }
   }  
   
@@ -53,11 +57,15 @@ class App extends Component {
                             <button className="btn-primary" onClick={() => this.getArtistId()}>
                                 Buscar Artista
                             </button>
-                            {this.state.artist_name != ''?  <p className='form-content'>{this.state.artist_name}</p>: <p className='form-content'>{this.state.error}</p>}
-                            {this.state.biography != ''?  <p className='biography'>{this.state.biography}</p>: null}
+                            <span>
+
+                              {this.state.artist_name != ''?  <p className='form-content'>Nome: {this.state.artist_name}</p>: <p className='form-content'>{this.state.error}</p>}
+                              {this.state.popularity != ''?  <p className='info'>Popularidade: {this.state.popularity}</p>: null}
+                            </span>
                           </div>                      
-                          
                     </div>
+                            {this.state.photo != ''?  <img src={this.state.photo} alt=''></img>: null}
+                            {this.state.biography != ''?  <p className='biography'>{this.state.biography}</p>: null}
                 </div>
             </div>
         </div>

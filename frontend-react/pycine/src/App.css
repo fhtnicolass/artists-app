@@ -66,19 +66,17 @@ html, body {
     margin-bottom: 30px;
 }
 
-.form-content p, pre {
+.form-content p, pre, img {
     color: #fff;
     text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 17px;
     font-weight: 300;
     line-height: 20px;
     margin-bottom: 30px;
 }
 
-
-.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
-    color: #fff;
-}
 
 .form-content input[type=text], .form-content select {
     width: 90%;
@@ -111,25 +109,6 @@ html, body {
      box-shadow: none;
 }
 
-.form-content textarea {
-    position: static !important;
-    width: 100%;
-    padding: 8px 20px;
-    border-radius: 6px;
-    text-align: left;
-    background-color: #fff;
-    border: 0;
-    font-size: 15px;
-    font-weight: 300;
-    color: #8D8D8D;
-    outline: none;
-    resize: none;
-    height: 120px;
-    -webkit-transition: none;
-    transition: none;
-    margin-bottom: 14px;
-}
-
 .form-content textarea:hover, .form-content textarea:focus {
     border: 0;
     background-color: #ebeff8;
@@ -140,5 +119,9 @@ html, body {
 .mv-up{
     margin-top: -9px !important;
     margin-bottom: 8px !important;
+}
+
+.info{
+    align-items: center;
 }
 

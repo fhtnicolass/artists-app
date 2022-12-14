@@ -27,4 +27,11 @@ class RequestApi:
         artists = data['results']
         artist_searched = artists[0]
         return artist_searched
-        
+    
+    @staticmethod
+    def get_artista_photo(path: str):
+        endpoint = f'https://image.tmdb.org/t/p/w500{path}'
+        r = requests.get(endpoint)
+        photo = r
+        return photo
+    

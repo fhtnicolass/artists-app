@@ -45,6 +45,12 @@ def get_artist(name: str):
         return full_artist
 
     
-
+@app.get('/artista{profile_path}')
+def get_artist_photo(path: str):
+    
+    if(path != ''):
+        
+        photo = RequestApi.get_artista_photo(path)
+        return photo
 
 
