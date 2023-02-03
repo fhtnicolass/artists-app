@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+.button-row{
+    
+    margin-right: 30px;
+}
+
+.user-manager-button {
+    background-color: royalblue;
+    color: white;
+    border: 2px solid royalblue;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 10px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+  }
+  
+.user-manager-button:hover {
+    background-color: white;
+    color: royalblue;
+    border: 2px solid royalblue;
+}
