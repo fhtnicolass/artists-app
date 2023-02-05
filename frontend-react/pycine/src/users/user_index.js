@@ -62,13 +62,13 @@ const UserCrudPage = () => {
 
   return (
     <div className="user-container">
-      <h1 className="title">User Management</h1>
+      <h1 className="title">Gerenciamento de Usuários</h1>
       <table className="user-table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Nome</th>
             <th>Email</th>
-            <th>Actions</th>
+            <th>Opções</th>
           </tr>
         </thead>
         <tbody>
@@ -84,16 +84,17 @@ const UserCrudPage = () => {
 
               <td>
                 <button onClick={() => editUser(user)} className="edit-btn">
-                  Edit
+                  Editar
                 </button>
                 <button onClick={() => deleteUser(user.id)} className="delete-btn">
-                  Delete
+                  Deletar
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
         <tfoot>
+          {/* Caso editar seja == true, altera para o layout de edição */}
           {editing ? (
             <tr>
               <td>
@@ -130,7 +131,7 @@ const UserCrudPage = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Enter name"
+                  placeholder="Insira o nome"
                   onChange={e => setCurrentUser({ ...currentUser, name: e.target.value })}
                 />
               </td>
@@ -138,13 +139,13 @@ const UserCrudPage = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Enter email"
+                  placeholder="Insira o email"
                   onChange={e => setCurrentUser({ ...currentUser, email: e.target.value })}
                 />
               </td>
               <td>
                 <button onClick={() => addUser(currentUser)} className="add-btn">
-                  Add
+                  Adicionar
                 </button>
               </td>
             </tr>

@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\FARHAT\Desktop\Projetos\fastapi_sqlalchemy-master\fastapi_sqlalchemy-master\env
+set VIRTUAL_ENV=C:\Users\FARHAT\Desktop\Projetos\artists-app\api\env
 
 if not defined PROMPT set PROMPT=$P$G
 

@@ -38,7 +38,8 @@ class ArtistModal extends Component {
       let image = await fetch('https://image.tmdb.org/t/p/w300' + result.profile_path)
 
       console.log(result)
-      this.setState({value:name, artist_name: result.name, biography: result.biography, popularity: result.popularity, photo: image.url})
+      this.setState({value:name, 
+                  artist_name: result.name, biography: result.biography, popularity: result.popularity, photo: image.url})
       
     
     } catch (e) {
@@ -56,10 +57,10 @@ class ArtistModal extends Component {
             <input type="text" id="name" placeholder="Nome do artista" value={this.state.value} onChange={this.handleChange} required />
             
             {this.state.value === "" ? null : (
-          <button className="btn-primary" onClick={() => this.getArtistId()}>
-            Buscar Artista
-          </button>
-        )}
+              <button className="btn-primary" onClick={() => this.getArtistId()}>
+                Buscar Artista
+              </button>
+            )}
             <span>
               {this.state.artist_name !== "" ? (
                 <p className="form-content">Nome: {this.state.artist_name}</p>

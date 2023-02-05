@@ -24,7 +24,7 @@ class App extends Component {
               </div>
 
             <Routes>
-              <Route path="/usermanagement" element={<UserCrudPage/>} />
+              <Route path="/usermanagement/" element={<UserCrudPage/>} />
               <Route path="/artist" element={<ArtistModal/>} />
             </Routes>
           </Router>

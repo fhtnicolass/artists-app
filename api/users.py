@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-
 from api_utils.api_utils import RequestApi
 from db.database import session, User
 
@@ -25,15 +24,17 @@ class UserCreate(BaseModel): #criando classe do objeto Usuário
 
 @app.post("/users/")
 async def create_user(user: UserCreate):
-    new_user = User(name=user.name, email=user.email)
-    session.add(new_user)
+    novo_usuario = User(name=user.name, email=user.email)
+    session.add(novo_usuario)
     session.commit()
-    return {"message": "User created"}
+    return {"message": "Usuário criado com sucesso"}
 
+##obtém todos os usuários do banco
 @app.get("/users/")
 async def read_users():
-    users = session.query(User).all()
-    return [{"id": user.id, "name": user.name, "email": user.email} for user in users]
+    users = session.query(User).all() 
+    users_json = users.json()
+    return users
 
 @app.put("/users/{id}")
 async def update_user(id: int, user: UserCreate):
