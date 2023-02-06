@@ -1,4 +1,3 @@
-import json
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -34,7 +33,7 @@ async def create_user(user: UserCreate):
 @app.get("/users/")
 async def read_users():
     users = session.query(User).all() 
-    users_json = json.dumps(users)
+    # users_json = users.json()
     return users
 
 @app.put("/users/{id}")
